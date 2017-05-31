@@ -1,0 +1,33 @@
+<% include ../partials/header %> 
+
+ <div class="container">
+     <header class="jumbotron">
+         <div class="container">
+             <h1>Welcome To Crate Raters!</h1>
+             <p>See what people have been diggin up lately</p>
+             <p>
+                <a class="btn btn-primary btn-large" href="/records/new">Add New Record</a>
+             </p>
+         </div>
+     </header>
+     
+     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% records.forEach(function(record){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                   <img src="<%= record.image %>">
+                   <div class="caption">
+                       <h4><%= record.artist %></h4>
+                       <h5><%= record.album %></h5>
+                       <h6><%= record.year %></h6>
+                   </div>
+                   <p>
+                       <a href="/records/<%= record._id %>" class="btn btn-primary">More Info</a>
+                   </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
+
+<% include ../partials/footer %>
